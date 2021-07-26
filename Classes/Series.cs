@@ -6,6 +6,7 @@
         private string Title { get; set; }
         private string Description { get; set; }
         private int Year { get; set; }
+        private bool Deleted { get; set; }
 
         public Series(int id, Genre genre, string title, string description, int year)
         {
@@ -14,14 +15,16 @@
             Title = title;
             Description = description;
             Year = year;
+            Deleted = false;
         }
 
         public override string ToString()
         {
-            string serieslInfo = $"Genre: {Genre}" +
-                $"Title: {Title}" +
-                $"Description: {Description}" +
-                $"Release year: {Year}";
+            string serieslInfo = $"Genre: {Genre} \n" +
+                $"Title: {Title}\n" +
+                $"Description: {Description}\n" +
+                $"Release year: {Year}\n" +
+                $"Deleted: {Deleted}";
             return serieslInfo;
 
         }
@@ -32,6 +35,14 @@
         public int GetId()
         {
             return Id;
+        }
+        public bool GetDeleted()
+        {
+            return Deleted;
+        }
+        public void Delete()
+        {
+            Deleted = true;
         }
 
     }
